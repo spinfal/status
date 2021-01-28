@@ -19,6 +19,11 @@
         alert('you must provide some text to use for the status.');
         document.getElementById('status').focus();
       }
+
+			if (status.length>=128) {
+				alert('discord does not allow more than 128 characters in a status');
+				document.getElementById('status').focus();
+			}
       
       var url = "https://discord.com/api/v8/users/@me/settings";
 
@@ -27,6 +32,7 @@
       
       stat.setRequestHeader('Content-type', 'application/json');
       stat.setRequestHeader('Authorization', token);
+			stat.setRequestHeader('User-Agent', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.198 Safari/537.36 OPR/72.0.3815.473')
       
       if (emote==="") {
         emote = null;
@@ -40,7 +46,7 @@
                   "custom_status":
                   {
                       "text": status,
-                      "expires_at": null, // this will come, soon :)
+                      "expires_at": null, // this will come, never
                       "emoji_id": emoteID,
                       "emoji_name": emote
                   }

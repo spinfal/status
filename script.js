@@ -19,7 +19,7 @@
         alert('you must provide some text to use for the status.');
         document.getElementById('status').focus();
       }
-
+			
 			if (status.length>=128) {
 				alert('discord does not allow more than 128 characters in a status');
 				document.getElementById('status').focus();

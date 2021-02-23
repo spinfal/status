@@ -1,28 +1,37 @@
-
 <!DOCTYPE html>
 <html>
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
+    <meta charset="utf-8">
     <meta name="description" content="shitty way to change your discord status">
-    <title>the status</title>
+    <title>status</title>
     <link href="style.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="css/bootstrap.css" type="text/css" />
   </head>
-  <body style="font-family: Verdana">
-    <h1>the status</h1>
-    <p>a really dumb but cool way to change your discord status</s></p>
-    <input type="text" id="token" placeholder="your token"><br>
-    <input type="number" id="emoteID" placeholder="emote id (ONLY IF NITRO EMOTE)"><br>
-    <input type="text" id="emote" placeholder="emote name or standard emoji">&nbsp;EMOTE NAMES ARE CASE SENSITIVE<br>
-    <input type="text" id="status" placeholder="status text" maxlength="128"><br>
-    <button onclick="stat()">set status</button>
-    <div id="store">
-    &nbsp;&nbsp;<button onclick="save()" id="save">save current config</button>
-    <button onclick="remove()" id="remove" style="display: inline;">remove config</button>
-    </div>
-    <div class="footer">
-      <p>you can view the repl source code <a href="https://repl.it/@spinfal/status" target="_blank" draggable="false">here</a></p>
+  <body>
+    <div class="container">
+      <div class="hero-unit">
+        <h1>the status</h1>
+        <p>a really dumb but cool way to change your discord status</s></p>
+        <input type="text" id="token" placeholder="your token"><br>
+        <input type="number" id="emoteID" placeholder="emote id (NITRO EMOTE)"><br>
+        <input type="text" id="emote" placeholder="standard emoji">&nbsp;EMOTE NAMES ARE CASE SENSITIVE<br>
+        <input type="text" id="status" placeholder="status text" maxlength="128"><br>
+        <input type="date" id="expire" name="expire">&nbsp;set status expiration<br>
+        <button onclick="stat()" class="btn-small btn-success">set status</button><br><br>
+        <div id="store">
+          &nbsp;&nbsp;<button onclick="save()" id="save" class="btn-small btn-warning">save current config</button>
+          <button onclick="remove()" id="remove" style="display: inline;" class="btn-small btn-danger">remove config</button>
+        </div>
+      </div>
+      <hr>
+      <div class="footer">
+        <p>you can view the repl source code <a href="https://repl.it/@spinfal/status" target="_blank" draggable="false">here</a></p>
+      </div>
     </div>
     <script src="script.js"></script>
+    <script src="https://code.jquery.com/jquery-1.10.1.min.js"></script>
+    <script src="js/bootstrap.js"></script>
   </body>
 </html>

@@ -10,14 +10,11 @@
       }
     
     function stat() {
-      var token = document.getElementById('token').value; var status = document.getElementById('status').value; emote = document.getElementById('emote').value; var emoteID = document.getElementById('emoteID').value;
+      var token = document.getElementById('token').value; var status = document.getElementById('status').value; emote = document.getElementById('emote').value; var emoteID = document.getElementById('emoteID').value; var expire = document.getElementById('expire').value; console.log(expire);
 
       if (token==="") {
         alert('you must provide a token.');
         document.getElementById('token').focus();
-      } else if (status==="") {
-        alert('you must provide some text to use for the status.');
-        document.getElementById('status').focus();
       }
 			
 			if (status.length>=128) {
@@ -34,6 +31,10 @@
       stat.setRequestHeader('Authorization', token);
 			stat.setRequestHeader('User-Agent', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.198 Safari/537.36 OPR/72.0.3815.473')
       
+      if (status==="") {
+        status = null;
+      }
+
       if (emote==="") {
         emote = null;
       }
@@ -42,15 +43,19 @@
         emoteID = null;
       }
 
+      if (expire==="") {
+        expire = null;
+      }
+
       var params = {
-                  "custom_status":
-                  {
-                      "text": status,
-                      "expires_at": null, // this will come, never
-                      "emoji_id": emoteID,
-                      "emoji_name": emote
-                  }
-              };
+        "custom_status":
+          {
+            "text": status,
+            "expires_at": expire, // this will come, now? is it here? who knows?
+            "emoji_id": emoteID,
+            "emoji_name": emote
+          }
+        };
 
       stat.send(JSON.stringify(params));
     }
